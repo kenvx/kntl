@@ -29,19 +29,8 @@ program
 program.addCommand(createPingCommand());
 program.addCommand(createTestCommand());
 
-// Add global error handling
-program.exitOverride();
-
-try {
-  program.parse();
-} catch (error) {
-  if (error instanceof Error) {
-    showError(error.message);
-  } else {
-    showError('An unexpected error occurred');
-  }
-  process.exit(1);
-}
+// Parse command line arguments
+program.parse();
 
 // If no command is provided, show help
 if (!process.argv.slice(2).length) {
