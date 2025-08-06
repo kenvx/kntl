@@ -23,5 +23,7 @@ module.exports = {
     'text',
     'lcov',
     'html'
-  ]
+  ],
+  forceExit: true,
+  detectOpenHandles: false
 };

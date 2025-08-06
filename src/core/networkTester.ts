@@ -162,10 +162,12 @@ export class NetworkTester {
       };
 
       const request = https.request(options, () => {
+        request.destroy(); // Properly close the connection
         resolve();
       });
 
       request.on('error', (err: Error) => {
+        request.destroy(); // Ensure cleanup on error
         reject(err);
       });
 
